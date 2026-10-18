@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Sewa Bus Moswaren - Sorong PP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0F4C81',
+                            darkblue: '#0A3357',
+                            gold: '#F59E0B',
+                            goldlight: '#FCD34D',
+                            accent: '#2563EB',
+                            surface: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .active-tab {
+            border-bottom: 3px solid #F59E0B;
+            color: #0F4C81;
+            font-weight: 700;
+            background-color: rgba(245, 158, 11, 0.08);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-brand-darkblue via-brand-blue to-blue-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center py-4 gap-4">
+                <!-- Logo & Title -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-brand-gold text-brand-darkblue p-3 rounded-xl shadow-md">
+                        <i class="fa-solid fa-bus text-2xl sm:text-3xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">MOSWAREN - SORONG EXPRESS</h1>
+                        <p class="text-xs sm:text-sm text-amber-300 font-medium flex items-center gap-1">
+                            <i class="fa-solid fa-route"></i> Layanan Transportasi Bus Pariwisata & Travel PP
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fast Info -->
+                <div class="hidden lg:flex items-center gap-6 text-sm">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-clock text-brand-gold text-lg"></i>
+                        <div>
+                            <p class="text-xs text-gray-300">Jam Operasional</p>
+                            <p class="font-semibold">06.00 - 21.00 WIT</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-phone-volume text-brand-gold text-lg"></i>
+                        <div>
+                            <p class="text-xs text-gray-300">Hotline 24/7</p>
+                            <p class="font-semibold">+62 821-9876-5432</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Navigation Bar -->
+    <nav class="flex border-t border-blue-800/60 mt-2 overflow-x-auto no-scrollbar">
+        <button onclick="switchTab('panel1')" id="tab-panel1" class="active-tab flex-1 min-w-[140px] py-3 px-4 text-center text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 rounded-t-lg">
+            <i class="fa-solid fa-bus text-base"></i>
+            <span>Informasi & Harga Bus</span>
+        </button>
+        <button onclick="switchTab('panel2')" id="tab-panel2" class="text-gray-300 hover:text-white flex-1 min-w-[140px] py-3 px-4 text-center text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 rounded-t-lg">
+            <i class="fa-solid fa-route text-base"></i>
+            <span>Fasilitas, Rute & Rest Area</span>
+        </button>
+        <button onclick="switchTab('panel3')" id="tab-panel3" class="text-gray-300 hover:text-white flex-1 min-w-[140px] py-3 px-4 text-center text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 rounded-t-lg">
+            <i class="fa-solid fa-address-book text-base"></i>
+            <span>Kontak & Driver</span>
+        </button>
+    </nav>
+        </div>
+    </header>
+
+    <!-- Banner Info Ringkas -->
+    <section class="bg-gradient-to-r from-amber-500 to-amber-600 text-slate-900 py-2.5 px-4 shadow-inner">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm font-semibold gap-1 text-center sm:text-left">
+            <span><i class="fa-solid fa-circle-info mr-1"></i> Melayani Sewa Khusus Rombongan, Acara Keluarga, Dinas, & Wisata Moswaren - Sorong (PP)</span>
+            <span class="bg-slate-900 text-amber-400 px-2.5 py-0.5 rounded-full text-xs font-bold">Armada Prima & Driver Berpengalaman</span>
+        </div>
+    </section>
+
+    <!-- Main Dynamic Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- ================= PANEL 1: INFORMASI BUS & PRICE LIST ================= -->
+        <div id="panel1" class="tab-content active space-y-8">
+            
+            <!-- Filter & Status Bar -->
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 flex flex-col lg:flex-row items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold text-brand-darkblue flex items-center gap-2">
+                        <i class="fa-solid fa-clipboard-list text-brand-gold"></i> Daftar Armada Bus Ready & Price List
+                    </h2>
+                    <p class="text-sm text-gray-500">Pilih armada bus yang sesuai dengan kebutuhan kapasitas dan kenyamanan rombongan Anda (Moswaren - Sorong PP).</p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-2 w-full lg:w-auto">
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider w-full sm:w-auto">Filter Status:</span>
+                    <button onclick="filterBuses('all')" class="bus-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-brand-blue text-white shadow-sm transition">
+                        Semua Bus
+                    </button>
+                    <button onclick="filterBuses('ready')" class="bus-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-gray-100 text-gray-600 hover:bg-gray-200 transition">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block mr-1"></span> Standby / Ready
+                    </button>
+                    <button onclick="filterBuses('booked')" class="bus-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-gray-100 text-gray-600 hover:bg-gray-200 transition">
+                        <span class="w-2 h-2 rounded-full bg-rose-500 inline-block mr-1"></span> Terpakai
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bus Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="bus-cards-container">
+                
+                <!-- Bus Item 1 -->
+                <div class="bus-card bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1" data-status="ready">
+                    <div class="relative h-52 overflow-hidden bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80" alt="Medium Bus Pariwisata" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        <span class="absolute top-3 right-3 bg-emerald-500 text-white text-xs px-3 py-1 rounded-full font-bold shadow-md flex items-center gap-1">
+                            <i class="fa-solid fa-circle text-[8px]"></i> Standby / Ready
+                        </span>
+                        <div class="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-lg font-medium">
+                            <i class="fa-solid fa-chair text-brand-gold"></i> 20 Seat (Medium)
+                        </div>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-bold text-gray-900">Medium Bus Exec - Cenderawasih</h3>
+                                <span class="bg-blue-50 text-brand-blue text-xs font-semibold px-2.5 py-0.5 rounded-md border border-blue-200">Standard VIP</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mb-3">Sangat cocok untuk rombongan keluarga besar, instansi kantor, atau perjalanan dinas Moswaren - Sorong.</p>
+                            
+                            <ul class="text-xs text-gray-600 space-y-1.5 mb-4">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> AC Full Dingin & USB Charger</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Reclining Seats & Bagasi Luas</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Audio Karaoke & LED TV</li>
+                            </ul>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                            <div>
+                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Harga Sewa PP</p>
+                                <p class="text-lg font-extrabold text-brand-blue">Rp 200.000 <span class="text-xs text-gray-500 font-normal">/ Hari</span></p>
+                            </div>
+                            <button onclick="quickBook('Medium Bus Exec - Cenderawasih (20 Seat)')" class="bg-brand-gold hover:bg-amber-600 text-slate-900 px-4 py-2 rounded-xl text-xs font-bold transition shadow-md flex items-center gap-1">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> Pesan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bus Item 2 -->
+                <div class="bus-card bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1" data-status="ready">
+                    <div class="relative h-52 overflow-hidden bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800&q=80" alt="Big Bus Pariwisata" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        <span class="absolute top-3 right-3 bg-emerald-500 text-white text-xs px-3 py-1 rounded-full font-bold shadow-md flex items-center gap-1">
+                            <i class="fa-solid fa-circle text-[8px]"></i> Standby / Ready
+                        </span>
+                        <div class="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-lg font-medium">
+                            <i class="fa-solid fa-chair text-brand-gold"></i> 30 Seat (Big Bus)
+                        </div>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-bold text-gray-900">Big Bus Royal - Kasuari</h3>
+                                <span class="bg-amber-50 text-amber-700 text-xs font-semibold px-2.5 py-0.5 rounded-md border border-amber-200">High Class</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mb-3">Pilihan utama rombongan jumlah besar, acara keagamaan, atau rombongan dinas pemerintah.</p>
+                            
+                            <ul class="text-xs text-gray-600 space-y-1.5 mb-4">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> AC Dual Zone & Bagasi Ekstra Luas</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Reclining Seat + Legrest Tambahan</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Toilet Dalam & Wifi Gratis</li>
+                            </ul>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                            <div>
+                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Harga Sewa PP</p>
+                                <p class="text-lg font-extrabold text-brand-blue">Rp 150.000 <span class="text-xs text-gray-500 font-normal">/ Hari</span></p>
+                            </div>
+                            <button onclick="quickBook('Big Bus Royal - Kasuari (30 Seat)')" class="bg-brand-gold hover:bg-amber-600 text-slate-900 px-4 py-2 rounded-xl text-xs font-bold transition shadow-md flex items-center gap-1">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> Pesan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bus Item 3 -->
+                <div class="bus-card bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1" data-status="ready">
+                    <div class="relative h-52 overflow-hidden bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1557223562-6c77ef16210f?auto=format&fit=crop&w=800&q=80" alt="Micro Bus Travel" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        <span class="absolute top-3 right-3 bg-emerald-500 text-white text-xs px-3 py-1 rounded-full font-bold shadow-md flex items-center gap-1">
+                            <i class="fa-solid fa-circle text-[8px]"></i> Standby / Ready
+                        </span>
+                        <div class="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-lg font-medium">
+                            <i class="fa-solid fa-chair text-brand-gold"></i> 15 Seat (Micro Bus)
+                        </div>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-bold text-gray-900">Micro Bus Travel Express</h3>
+                                <span class="bg-purple-50 text-purple-700 text-xs font-semibold px-2.5 py-0.5 rounded-md border border-purple-200">Fast & Lincah</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mb-3">Ideal untuk rombongan kecil/keluarga inti yang membutuhkan perjalanan cepat dan fleksibel.</p>
+                            
+                            <ul class="text-xs text-gray-600 space-y-1.5 mb-4">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Full AC & Charger USB</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Kursi Reclining Nyaman</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Layanan Penjemputan Door to Door</li>
+                            </ul>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                            <div>
+                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Harga Sewa PP</p>
+                                <p class="text-lg font-extrabold text-brand-blue">Rp 100.000 <span class="text-xs text-gray-500 font-normal">/ Hari</span></p>
+                            </div>
+                            <button onclick="quickBook('Micro Bus Travel Express (15 Seat)')" class="bg-brand-gold hover:bg-amber-600 text-slate-900 px-4 py-2 rounded-xl text-xs font-bold transition shadow-md flex items-center gap-1">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> Pesan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Price Table & Route Summary -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 space-y-4">
+                <h3 class="text-lg font-bold text-brand-darkblue flex items-center gap-2">
+                    <i class="fa-solid fa-table text-brand-gold"></i> Transparansi Tarif Sewa & Layanan Rute Moswaren - Sorong
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="bg-slate-50 border-b border-gray-200 text-brand-darkblue">
+                                <th class="p-3 font-semibold">Tipe Armada</th>
+                                <th class="p-3 font-semibold">Kapasitas</th>
+                                <th class="p-3 font-semibold">Sewa Pulang Pergi (PP)</th>
+                                <th class="p-3 font-semibold">Charter / Drop Off</th>
+                                <th class="p-3 font-semibold">Keterangan Paket</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 text-gray-700">
+                            <tr>
+                                <td class="p-3 font-medium">Micro Bus Travel</td>
+                                <td class="p-3">15 Seat</td>
+                                <td class="p-3 font-bold text-brand-blue">Rp 500.000</td>
+                                <td class="p-3 font-semibold text-gray-700">Rp 1.000.000</td>
+                                <td class="p-3"><span class="text-emerald-700 font-semibold text-xs bg-emerald-50 px-2 py-0.5 rounded">Termasuk Driver & BBM</span></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-medium">Medium Bus Exec</td>
+                                <td class="p-3">20 - 25 Seat</td>
+                                <td class="p-3 font-bold text-brand-blue">Rp 600.000</td>
+                                <td class="p-3 font-semibold text-gray-700">Rp 1.100.000</td>
+                                <td class="p-3"><span class="text-emerald-700 font-semibold text-xs bg-emerald-50 px-2 py-0.5 rounded">Termasuk Driver & BBM</span></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-medium">Big Bus Royal</td>
+                                <td class="p-3">30 Seat</td>
+                                <td class="p-3 font-bold text-brand-blue">Rp 1.000.000</td>
+                                <td class="p-3 font-semibold text-gray-700">Rp 1.200.000</td>
+                                <td class="p-3"><span class="text-emerald-700 font-semibold text-xs bg-emerald-50 px-2 py-0.5 rounded">Termasuk Driver & BBM</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-xs text-gray-500 italic">* Tarif sudah termasuk Driver Profesional dan BBM. Belum termasuk retribusi parkir jalan & konsumsi opsional driver.</p>
+            </div>
+
+        </div>
+
+        <!-- ================= PANEL 2: FASILITAS, RUTE KAMPUNG & REST AREA ================= -->
+        <div id="panel2" class="tab-content space-y-10">
+            
+            <!-- Section Title -->
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Kenyamanan Perjalanan</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-darkblue">Fasilitas, Rute Kampung, & Rest Area</h2>
+                <p class="text-sm text-gray-600">Perjalanan jarak jauh Moswaren - Sorong dirancang agar tetap aman, amanah, dan berkesan bagi seluruh penumpang.</p>
+            </div>
+
+            <!-- Fasilitas Bus Section -->
+            <div>
+                <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2 border-b border-gray-200 pb-3">
+                    <i class="fa-solid fa-star text-brand-gold"></i> Fasilitas Kenyamanan Dalam Bus
+                </h3>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-start gap-4">
+                        <div class="bg-blue-50 text-brand-blue p-3 rounded-xl shrink-0"><i class="fa-solid fa-snowflake text-2xl"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-base">AC Full Dingin</h4>
+                            <p class="text-xs text-gray-500">Suhu kabin terjaga sejuk sepanjang perjalanan Sorong - Moswaren.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-start gap-4">
+                        <div class="bg-blue-50 text-brand-blue p-3 rounded-xl shrink-0"><i class="fa-solid fa-couch text-2xl"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-base">Reclining Seats</h4>
+                            <p class="text-xs text-gray-500">Kursi yang dapat disesuaikan tingkat kemiringannya agar tidak lelah.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-start gap-4">
+                        <div class="bg-blue-50 text-brand-blue p-3 rounded-xl shrink-0"><i class="fa-solid fa-plug text-2xl"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-base">USB Charger / Colokan</h4>
+                            <p class="text-xs text-gray-500">Pengisian daya handphone tersedia untuk kenyamanan penumpang.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-start gap-4">
+                        <div class="bg-blue-50 text-brand-blue p-3 rounded-xl shrink-0"><i class="fa-solid fa-suitcase text-2xl"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-base">Bagasi Luas</h4>
+                            <p class="text-xs text-gray-500">Kapasitas penyimpanan barang bawaan dan hasil bumi yang memadai.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-start gap-4">
+                        <div class="bg-blue-50 text-brand-blue p-3 rounded-xl shrink-0"><i class="fa-solid fa-bottle-water text-2xl"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-base">Air Mineral Gratis</h4>
+                            <p class="text-xs text-gray-500">Air minum dalam kemasan disiapkan gratis untuk seluruh penumpang.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-start gap-4">
+                        <div class="bg-blue-50 text-brand-blue p-3 rounded-xl shrink-0"><i class="fa-solid fa-music text-2xl"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-base">Audio & Entertainment</h4>
+                            <p class="text-xs text-gray-500">Sistem musik dan TV untuk hiburan selama perjalanan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Informasi Rute Kampung yang Dilewati -->
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2 border-b border-gray-200 pb-3">
+                    <i class="fa-solid fa-map-location-dot text-brand-gold"></i> Informasi Rute Kampung Yang Dilewati
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Rute 1: Via Ayamaru -->
+                    <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm space-y-4 hover:border-brand-blue transition">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-blue-100 text-brand-blue text-xs font-bold px-3 py-1 rounded-full uppercase">Opsi Rute 1</span>
+                            <span class="text-xs text-gray-400 font-semibold"><i class="fa-solid fa-mountain"></i> Jalur Maybrat</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-brand-darkblue">Rute Trans-Papua via Ayamaru</h4>
+                        <p class="text-xs text-gray-600">Melintasi kawasan dataran Maybrat dengan perlintasan utama titik kampung berikut:</p>
+                        
+                        <div class="space-y-2 pt-2">
+                            <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                <div class="w-8 h-8 rounded-full bg-brand-blue text-white font-bold flex items-center justify-center text-xs shrink-0">1</div>
+                                <div>
+                                    <p class="font-bold text-xs text-gray-800">Ayamaru</p>
+                                    <p class="text-[11px] text-gray-500">Lintas area danau & pemukiman utama Maybrat.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                <div class="w-8 h-8 rounded-full bg-brand-blue text-white font-bold flex items-center justify-center text-xs shrink-0">2</div>
+                                <div>
+                                    <p class="font-bold text-xs text-gray-800">Sroan</p>
+                                    <p class="text-[11px] text-gray-500">Jalur perlintasan kampung dan area perkebunan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rute 2: Via Sorong Selatan (Sorsel) -->
+                    <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm space-y-4 hover:border-brand-gold transition">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Opsi Rute 2</span>
+                            <span class="text-xs text-gray-400 font-semibold"><i class="fa-solid fa-tree"></i> Jalur Sorong Selatan</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-brand-darkblue">Rute via Sorong Selatan (Sorsel)</h4>
+                        <p class="text-xs text-gray-600">Jalur utama pesisir & perkampungan Sorong Selatan melintasi kampung-kampung berikut:</p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+                            <div class="flex items-center gap-2.5 bg-amber-50/50 p-2.5 rounded-xl border border-amber-100">
+                                <i class="fa-solid fa-location-pin text-brand-gold text-xs"></i>
+                                <div>
+                                    <p class="font-bold text-xs text-gray-800">Kampung Woigo</p>
+                                    <p class="text-[10px] text-gray-500">Perbatasan wilayah Sorsel.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2.5 bg-amber-50/50 p-2.5 rounded-xl border border-amber-100">
+                                <i class="fa-solid fa-location-pin text-brand-gold text-xs"></i>
+                                <div>
+                                    <p class="font-bold text-xs text-gray-800">Wayer</p>
+                                    <p class="text-[10px] text-gray-500">Distrik perkebunan & persinggahan.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2.5 bg-amber-50/50 p-2.5 rounded-xl border border-amber-100">
+                                <i class="fa-solid fa-location-pin text-brand-gold text-xs"></i>
+                                <div>
+                                    <p class="font-bold text-xs text-gray-800">Teminabuan</p>
+                                    <p class="text-[10px] text-gray-500">Pusat kota & transit utama.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2.5 bg-amber-50/50 p-2.5 rounded-xl border border-amber-100">
+                                <i class="fa-solid fa-location-pin text-brand-gold text-xs"></i>
+                                <div>
+                                    <p class="font-bold text-xs text-gray-800">Pasir Putih</p>
+                                    <p class="text-[10px] text-gray-500">Area pesisir panorama indah.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Rest Area Section -->
+            <div class="bg-gradient-to-br from-slate-900 to-brand-darkblue text-white rounded-3xl p-6 sm:p-8 shadow-xl">
+                <div class="max-w-3xl mb-8">
+                    <span class="bg-brand-gold text-slate-900 font-bold text-xs px-3 py-1 rounded-full uppercase">Tempat Persinggahan</span>
+                    <h3 class="text-2xl font-bold mt-2">Rest Area & Tempat Beristirahat</h3>
+                    <p class="text-sm text-gray-300 mt-1">Titik istirahat terpilih untuk makan, beribadah, dan penyegaran penumpang selama di perjalanan.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Rest Area 1 -->
+                    <div class="bg-white/10 backdrop-blur-md border border-white/15 p-5 rounded-2xl flex flex-col sm:flex-row gap-4 items-center">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=400&q=80" alt="Rest Area Rumah Makan Transit" class="w-full sm:w-32 h-32 object-cover rounded-xl shrink-0">
+                        <div class="space-y-2">
+                            <span class="text-[10px] bg-amber-400 text-slate-900 font-extrabold px-2 py-0.5 rounded">Transit Teminabuan</span>
+                            <h4 class="font-bold text-base text-white">RM & Rest Area Transit Teminabuan</h4>
+                            <p class="text-xs text-gray-300">Menyediakan masakan prasmanan khas, toilet bersih, serta tempat istirahat yang sejuk bagi rombongan.</p>
+                        </div>
+                    </div>
+
+                    <!-- Rest Area 2 -->
+                    <div class="bg-white/10 backdrop-blur-md border border-white/15 p-5 rounded-2xl flex flex-col sm:flex-row gap-4 items-center">
+                        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=400&q=80" alt="Rest Area Pasir Putih Singgah" class="w-full sm:w-32 h-32 object-cover rounded-xl shrink-0">
+                        <div class="space-y-2">
+                            <span class="text-[10px] bg-amber-400 text-slate-900 font-extrabold px-2 py-0.5 rounded">Persinggahan Pasir Putih</span>
+                            <h4 class="font-bold text-base text-white">Rest Area Pondok Singgah Pasir Putih</h4>
+                            <p class="text-xs text-gray-300">Nikmati pemandangan alam, es kelapa muda, dan fasilitas santai sejenak meluruskan kaki.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= PANEL 3: KONTAK ADMIN & DAFTAR DRIVER ================= -->
+        <div id="panel3" class="tab-content space-y-10">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Admin Contact & Operating Info -->
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 space-y-4">
+                        <h3 class="text-lg font-bold text-brand-darkblue flex items-center gap-2 border-b border-gray-100 pb-3">
+                            <i class="fa-solid fa-headset text-brand-gold"></i> Kontak & Kantor Admin
+                        </h3>
+
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-start gap-3">
+                                <div class="bg-blue-50 text-brand-blue p-2.5 rounded-lg shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold uppercase">Kantor Moswaren</p>
+                                    <p class="font-medium text-gray-800">Jl. Poros Trans Sorong - Moswaren, Distrik Moswaren</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="bg-blue-50 text-brand-blue p-2.5 rounded-lg shrink-0">
+                                    <i class="fa-solid fa-building"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold uppercase">Kantor Cabang Sorong</p>
+                                    <p class="font-medium text-gray-800">Jl. Aimas - Sorong lampu merah Km 10, Kota Sorong</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="bg-emerald-50 text-emerald-600 p-2.5 rounded-lg shrink-0">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold uppercase">WhatsApp Direct Link</p>
+                                    <a href="https://wa.me/6282198765432" target="_blank" class="font-semibold text-emerald-600 hover:underline">+62 821-9876-5432</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/6282198765432?text=Halo%20Admin,%20saya%20ingin%20tanya%20sewa%20bus%20Moswaren-Sorong" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl shadow transition flex items-center justify-center gap-2 text-xs">
+                            <i class="fa-brands fa-whatsapp text-base"></i> Hubungi Admin via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Interactive Booking Form -->
+                <div class="lg:col-span-2 bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-200 space-y-5">
+                    <div>
+                        <h3 class="text-xl font-bold text-brand-darkblue flex items-center gap-2">
+                            <i class="fa-solid fa-paper-plane text-brand-gold"></i> Form Pemesanan / Booking Bus
+                        </h3>
+                        <p class="text-xs text-gray-500">Isi formulir berikut untuk terhubung langsung ke WhatsApp Admin kami.</p>
+                    </div>
+
+                    <form id="bookingForm" onsubmit="sendToWhatsapp(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Nama Pemesan / Instansi *</label>
+                                <input type="text" id="nama" required placeholder="Contoh: Bpk. Melkianus" class="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Nomor WhatsApp *</label>
+                                <input type="tel" id="telepon" required placeholder="0821xxxxxxx" class="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Pilih Jenis Bus *</label>
+                                <select id="jenisBus" required class="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                                    <option value="">-- Pilih Bus --</option>
+                                    <option value="Micro Bus Travel (15 Seat)">Micro Bus Travel (15 Seat)</option>
+                                    <option value="Medium Bus Exec (20 Seat)">Medium Bus Exec (20 Seat)</option>
+                                    <option value="Big Bus Royal (30 Seat)">Big Bus Royal (30 Seat)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Tanggal Keberangkatan *</label>
+                                <input type="date" id="tanggal" required class="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Pilihan Rute *</label>
+                                <select id="rute" required class="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                                    <option value="Moswaren - Sorong (PP) via Ayamaru">Moswaren - Sorong (PP) via Ayamaru</option>
+                                    <option value="Moswaren - Sorong (PP) via Sorsel (Teminabuan)">Moswaren - Sorong (PP) via Sorsel (Teminabuan)</option>
+                                    <option value="Sorong - Moswaren (PP)">Sorong - Moswaren (PP)</option>
+                                    <option value="Drop Off / One Way">Drop Off / One Way</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Jumlah Rombongan (Orang)</label>
+                                <input type="number" id="jumlahOrang" placeholder="Contoh: 18" class="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Catatan Tambahan</label>
+                            <textarea id="catatan" rows="2" placeholder="Catatan jam keberangkatan atau lokasi penjemputan spesifik..." class="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> Kirim Pemesanan Ke WhatsApp
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Driver List Section -->
+            <div class="space-y-6 pt-4">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-id-card text-brand-gold"></i> Tim Driver (Supir Bus) Berpengalaman
+                    </h3>
+                    <p class="text-sm text-gray-500">Supir profesional, ramah, menguasai rute Trans Papua, Maybrat, & Sorong Selatan.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Driver 1 -->
+                    <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-center space-x-4">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" alt="Driver Bpk. Melkianus" class="w-16 h-16 rounded-full object-cover border-2 border-brand-gold shrink-0">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-base">Bpk. Melkianus</h4>
+                            <p class="text-xs text-brand-blue font-semibold">Pengalaman 12+ Tahun (Rute Sorsel)</p>
+                            <span class="inline-block bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded my-1">Standby / Ready</span>
+                            <p class="text-[11px] text-gray-500">Sangat mahir di jalur Woigo, Teminabuan, & Pasir Putih.</p>
+                        </div>
+                    </div>
+
+                    <!-- Driver 2 -->
+                    <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-center space-x-4">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Driver Bpk. Yosias" class="w-16 h-16 rounded-full object-cover border-2 border-brand-gold shrink-0">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-base">Bpk. Yosias</h4>
+                            <p class="text-xs text-brand-blue font-semibold">Pengalaman 10+ Tahun (Rute Maybrat)</p>
+                            <span class="inline-block bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded my-1">Standby / Ready</span>
+                            <p class="text-[11px] text-gray-500">Spesialis jalur Ayamaru & Sroan, tenang & ramah.</p>
+                        </div>
+                    </div>
+
+                    <!-- Driver 3 -->
+                    <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-center space-x-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Driver Bpk. Yance" class="w-16 h-16 rounded-full object-cover border-2 border-brand-gold shrink-0">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-base">Bpk. Yance</h4>
+                            <p class="text-xs text-brand-blue font-semibold">Pengalaman 8+ Tahun (Lintas Sorong)</p>
+                            <span class="inline-block bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded my-1">Standby / Ready</span>
+                            <p class="text-[11px] text-gray-500">Menguasai seluruh titik medan jalan & mengutamakan keselamatan.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= PANEL 3: KONTAK ADMIN & DAFTAR DRIVER ================= -->
+        <div id="panel3" class="tab-content space-y-10">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Admin Contact & Operating Info -->
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 space-y-4">
+                        <h3 class="text-lg font-bold text-brand-darkblue flex items-center gap-2 border-b border-gray-100 pb-3">
+                            <i class="fa-solid fa-headset text-brand-gold"></i> Kontak & Kantor Admin
+                        </h3>
+
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-start gap-3">
+                                <div class="bg-blue-50 text-brand-blue p-2.5 rounded-lg shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold uppercase">Kantor Moswaren</p>
+                                    <p class="font-medium text-gray-800">Jl. Trans Sorong - Moswaren No. 12, Distrik Moswaren</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="bg-blue-50 text-brand-blue p-2.5 rounded-lg shrink-0">
+                                    <i class="fa-solid fa-building"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold uppercase">Kantor Cabang Sorong</p>
+                                    <p class="font-medium text-gray-800">Jl. Aimas - Sorong Km 18, Kota Sorong</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="bg-emerald-50 text-emerald-600 p-2.5 rounded-lg shrink-0">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold uppercase">WhatsApp Official</p>
+                                    <p class="font-semibold text-gray-800">+62 821-9876-5432</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="bg-amber-50 text-amber-600 p-2.5 rounded-lg shrink-0">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold uppercase">Jam Layanan Booking</p>
+                                    <p class="font-medium text-gray-800">Senin - Minggu: 06.00 - 21.00 WIT</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Placeholder / Info -->
+                    <div class="bg-gradient-to-r from-brand-blue to-brand-darkblue text-white p-6 rounded-2xl shadow-md space-y-2">
+                        <i class="fa-solid fa-compass text-3xl text-brand-gold"></i>
+                        <h4 class="font-bold text-base">Rute Aman & Terperhatikan</h4>
+                        <p class="text-xs text-gray-200 leading-relaxed">Pengemudi kami sangat mengenali karakter dan kondisi medan jalan Moswaren - Sorong untuk menjamin keselamatan rombongan Anda.</p>
+                    </div>
+                </div>
+
+                <!-- Interactive Booking Form (Simulasi WA) -->
+                <div class="lg:col-span-2 bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-200 space-y-5">
+                    <div>
+                        <h3 class="text-xl font-bold text-brand-darkblue flex items-center gap-2">
+                            <i class="fa-solid fa-paper-plane text-brand-gold"></i> Form Simulasi Booking Cepat
+                        </h3>
+                        <p class="text-xs text-gray-500">Isi form di bawah ini untuk terhubung langsung dengan WhatsApp Admin layanan bus.</p>
+                    </div>
+
+                    <form id="bookingForm" onsubmit="sendToWhatsapp(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Nama Pemesan / Instansi *</label>
+                                <input type="text" id="nama" required placeholder="Contoh: Bpk. Markus / Dinas Pendidikan" class="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Nomor WhatsApp *</label>
+                                <input type="tel" id="telepon" required placeholder="0821xxxxxxx" class="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Pilih Jenis Bus *</label>
+                                <select id="jenisBus" required class="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                                    <option value="">-- Pilih Bus --</option>
+                                    <option value="Medium Bus Exec (30 Seat)">Medium Bus Exec (30 Seat)</option>
+                                    <option value="Big Bus Royal (45 Seat)">Big Bus Royal (45 Seat)</option>
+                                    <option value="Premium VIP Luxury Bus (22 Seat)">Premium VIP Luxury Bus (22 Seat)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Tanggal Keberangkatan *</label>
+                                <input type="date" id="tanggal" required class="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Rute Perjalanan *</label>
+                                <select id="rute" required class="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                                    <option value="Moswaren - Sorong (PP)">Moswaren -> Sorong (PP)</option>
+                                    <option value="Sorong - Moswaren (PP)">Sorong -> Moswaren (PP)</option>
+                                    <option value="Moswaren ke Sorong (One Way)">Moswaren -> Sorong (Satu Arah)</option>
+                                    <option value="Sorong ke Moswaren (One Way)">Sorong -> Moswaren (Satu Arah)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Jumlah Rombongan (Orang)</label>
+                                <input type="number" id="jumlahOrang" placeholder="Contoh: 25" class="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Catatan / Permintaan Khusus</label>
+                            <textarea id="catatan" rows="2" placeholder="Tuliskan jika ada lokasi penjemputan spesifik atau jam keberangkatan..." class="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> Kirim Pesanan via WhatsApp
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Driver List Section -->
+            <div class="space-y-6 pt-4">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-id-card text-brand-gold"></i> Tim Driver (Supir) Berpengalaman
+                    </h3>
+                    <p class="text-sm text-gray-500">Supir profesional, ramah, memiliki lisensi resmi, dan menguasai seluk-beluk rute Moswaren - Sorong.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Driver 1 -->
+                    <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-center space-x-4">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" alt="Driver Bpk. Yohanis" class="w-16 h-16 rounded-full object-cover border-2 border-brand-gold shrink-0">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-base">Bpk. Yohanis K.</h4>
+                            <p class="text-xs text-brand-blue font-semibold">Driver Senior (12+ Tahun Experience)</p>
+                            <div class="flex items-center text-amber-400 text-xs my-1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span class="text-gray-500 text-[10px] ml-1.5 font-bold">5.0 (Rating Penumpang)</span>
+                            </div>
+                            <p class="text-[11px] text-gray-500">Spesialis Big Bus & Rute Lintas Kabupaten.</p>
+                        </div>
+                    </div>
+
+                    <!-- Driver 2 -->
+                    <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-center space-x-4">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Driver Bpk. Samuel" class="w-16 h-16 rounded-full object-cover border-2 border-brand-gold shrink-0">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-base">Bpk. Samuel M.</h4>
+                            <p class="text-xs text-brand-blue font-semibold">Driver Medium Bus (8+ Tahun)</p>
+                            <div class="flex items-center text-amber-400 text-xs my-1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span class="text-gray-500 text-[10px] ml-1.5 font-bold">4.9 (Rating Penumpang)</span>
+                            </div>
+                            <p class="text-[11px] text-gray-500">Ramah, tepat waktu, & santun dalam berkendara.</p>
+                        </div>
+                    </div>
+
+                    <!-- Driver 3 -->
+                    <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-center space-x-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Driver Bpk. Petrus" class="w-16 h-16 rounded-full object-cover border-2 border-brand-gold shrink-0">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-base">Bpk. Petrus W.</h4>
+                            <p class="text-xs text-brand-blue font-semibold">Driver VIP Bus (10+ Tahun)</p>
+                            <div class="flex items-center text-amber-400 text-xs my-1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span class="text-gray-500 text-[10px] ml-1.5 font-bold">5.0 (Rating Penumpang)</span>
+                            </div>
+                            <p class="text-[11px] text-gray-500">Ahli navigasi jalan malam & protokol kenyamanan VIP.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-gray-400 text-xs py-6 border-t border-slate-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center space-y-2 sm:space-y-0">
+            <p>© 2026 Jasa Sewa Bus Moswaren - Sorong PP. All rights reserved.</p>
+            <p class="text-gray-500">Layanan Transportasi Bus Pariwisata & Perjalanan Rombongan Terpercaya</p>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Tab Switcher Logic
+        function switchTab(panelId) {
+            // Hide all panel content
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Reset tab button active states
+            const buttons = document.querySelectorAll('nav button');
+            buttons.forEach(btn => {
+                btn.classList.remove('active-tab');
+                btn.classList.add('text-gray-300');
+            });
+
+            // Show selected panel & activate tab button
+            document.getElementById(panelId).classList.add('active');
+            const activeBtn = document.getElementById('tab-' + panelId);
+            activeBtn.classList.add('active-tab');
+            activeBtn.classList.remove('text-gray-300');
+
+            // Scroll top smooth
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Bus Status Filter Logic
+        function filterBuses(status) {
+            const cards = document.querySelectorAll('.bus-card');
+            const buttons = document.querySelectorAll('.bus-filter-btn');
+
+            // Update button styles
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-blue', 'text-white');
+                btn.classList.add('bg-gray-100', 'text-gray-600');
+            });
+
+            event.currentTarget.classList.remove('bg-gray-100', 'text-gray-600');
+            event.currentTarget.classList.add('bg-brand-blue', 'text-white');
+
+            // Filter cards visibility
+            cards.forEach(card => {
+                const cardStatus = card.getAttribute('data-status');
+                if (status === 'all' || cardStatus === status) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Quick Book Action from Bus Card
+        function quickBook(busName) {
+            switchTab('panel3');
+            const selectEl = document.getElementById('jenisBus');
+            if (selectEl) {
+                selectEl.value = busName;
+            }
+        }
+
+        // Send Form Data to WhatsApp
+        function sendToWhatsapp(event) {
+            event.preventDefault();
+
+            const nama = document.getElementById('nama').value;
+            const telepon = document.getElementById('telepon').value;
+            const jenisBus = document.getElementById('jenisBus').value;
+            const tanggal = document.getElementById('tanggal').value;
+            const rute = document.getElementById('rute').value;
+            const jumlahOrang = document.getElementById('jumlahOrang').value || '-';
+            const catatan = document.getElementById('catatan').value || '-';
+
+            const adminPhone = "6282198765432"; // Admin WhatsApp number
+
+            const message = `*HALO ADMIN, SAYA INGIN SEWA BUS MOSWAREN - SORONG*%0A%0A` +
+                `*Nama Pemesan:* ${encodeURIComponent(nama)}%0A` +
+                `*No. Telepon:* ${encodeURIComponent(telepon)}%0A` +
+                `*Jenis Bus:* ${encodeURIComponent(jenisBus)}%0A` +
+                `*Tanggal Keberangkatan:* ${encodeURIComponent(tanggal)}%0A` +
+                `*Rute:* ${encodeURIComponent(rute)}%0A` +
+                `*Jumlah Rombongan:* ${encodeURIComponent(jumlahOrang)} Orang%0A` +
+                `*Catatan Tambahan:* ${encodeURIComponent(catatan)}%0A%0A` +
+                `Mohon konfirmasi ketersediaan dan total rincian sewanya. Terima kasih!`;
+
+            window.open(`https://wa.me/${adminPhone}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
